@@ -15,7 +15,6 @@ final class PhotoTableViewCell: UITableViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "emptyImage")
         
         return imageView
     }()
@@ -40,20 +39,6 @@ final class PhotoTableViewCell: UITableViewCell {
         return label
     }()
     
-    private lazy var labelsStackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            titleLabel,
-            idLabel
-        ])
-        
-        stackView.axis = .vertical
-        stackView.spacing = 10
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .leading
-        
-        return stackView
-    }()
-    
     // MARK: - Initialization
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -72,7 +57,8 @@ final class PhotoTableViewCell: UITableViewCell {
     
     private func setup() {
         contentView.addSubview(cellImageView)
-        contentView.addSubview(labelsStackView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(idLabel)
         
         setupConstraints()
     }
@@ -84,19 +70,22 @@ final class PhotoTableViewCell: UITableViewCell {
             make.left.equalToSuperview().inset(15)
         }
         
-        labelsStackView.snp.updateConstraints { make in
-            make.left.equalTo(cellImageView.snp.right).offset(Constants.stackViewEdgeInsets.left)
-            make.top.equalToSuperview().inset(Constants.stackViewEdgeInsets)
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(15)
+            make.left.equalTo(cellImageView.snp.right).offset(20)
         }
+        
+        idLabel.snp.makeConstraints { make in
+            make.bottom.equalToSuperview().inset(15)
+            make.left.equalTo(cellImageView.snp.right).offset(20)
+        }
+
     }
     
     override func prepareForReuse() {
         titleLabel.text = ""
         idLabel.text = ""
         cellImageView.image = nil
-        
-        labelsStackView.removeArrangedSubview(titleLabel)
-        labelsStackView.removeArrangedSubview(idLabel)
     }
     
     // MARK: - Iternal
@@ -104,6 +93,8 @@ final class PhotoTableViewCell: UITableViewCell {
     func configure(viewModel: CellViewModel) {
         if let image = viewModel.image {
             cellImageView.image = image
+        } else {
+            cellImageView.image = UIImage(named: "emptyImage")
         }
         titleLabel.text = viewModel.name
         idLabel.text = String(viewModel.id)
@@ -111,7 +102,7 @@ final class PhotoTableViewCell: UITableViewCell {
 }
 
 struct CellViewModel {
-    let image: UIImage?
+    var image: UIImage?
     let name: String
     let id: Int
 }

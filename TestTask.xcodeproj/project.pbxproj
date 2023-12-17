@@ -16,6 +16,11 @@
 		FC8AEFD92B2E59A600B398A7 /* PhotoListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AEFD82B2E59A600B398A7 /* PhotoListPresenter.swift */; };
 		FC8AEFDB2B2E5C2B00B398A7 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AEFDA2B2E5C2B00B398A7 /* PhotoTableViewCell.swift */; };
 		FC8AEFDF2B2E620E00B398A7 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8AEFDE2B2E620E00B398A7 /* UITableView+Extension.swift */; };
+		FCF944182B2E709500334441 /* URLRequestBulder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF944142B2E709500334441 /* URLRequestBulder.swift */; };
+		FCF944192B2E709500334441 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF944152B2E709500334441 /* NetworkManager.swift */; };
+		FCF9441A2B2E709500334441 /* APIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF944162B2E709500334441 /* APIModel.swift */; };
+		FCF9441B2B2E709500334441 /* ResponseHandler .swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF944172B2E709500334441 /* ResponseHandler .swift */; };
+		FCF9441D2B2E780900334441 /* APIResponse .swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF9441C2B2E780900334441 /* APIResponse .swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +36,11 @@
 		FC8AEFD82B2E59A600B398A7 /* PhotoListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListPresenter.swift; sourceTree = "<group>"; };
 		FC8AEFDA2B2E5C2B00B398A7 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		FC8AEFDE2B2E620E00B398A7 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		FCF944142B2E709500334441 /* URLRequestBulder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLRequestBulder.swift; sourceTree = "<group>"; };
+		FCF944152B2E709500334441 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		FCF944162B2E709500334441 /* APIModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIModel.swift; sourceTree = "<group>"; };
+		FCF944172B2E709500334441 /* ResponseHandler .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ResponseHandler .swift"; sourceTree = "<group>"; };
+		FCF9441C2B2E780900334441 /* APIResponse .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIResponse .swift"; sourceTree = "<group>"; };
 		FD704AF1AC5134A2ED67EFF8 /* Pods-TestTask.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTask.release.xcconfig"; path = "Target Support Files/Pods-TestTask/Pods-TestTask.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -84,7 +94,7 @@
 		FC8AEFC02B2E519200B398A7 /* TestTask */ = {
 			isa = PBXGroup;
 			children = (
-				FC8AEFDD2B2E61DF00B398A7 /* Extensions */,
+				FCF944132B2E707700334441 /* NetworkLayer */,
 				FC8AEFD62B2E596000B398A7 /* Screens */,
 				FC8AEFD52B2E595200B398A7 /* Models */,
 				FC8AEFDC2B2E61D200B398A7 /* Other */,
@@ -98,6 +108,7 @@
 		FC8AEFD52B2E595200B398A7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FCF9441C2B2E780900334441 /* APIResponse .swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 		FC8AEFDC2B2E61D200B398A7 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				FC8AEFDD2B2E61DF00B398A7 /* Extensions */,
 				FC8AEFC32B2E519200B398A7 /* SceneDelegate.swift */,
 				FC8AEFC12B2E519200B398A7 /* AppDelegate.swift */,
 			);
@@ -135,6 +147,17 @@
 				FC8AEFDE2B2E620E00B398A7 /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FCF944132B2E707700334441 /* NetworkLayer */ = {
+			isa = PBXGroup;
+			children = (
+				FCF944162B2E709500334441 /* APIModel.swift */,
+				FCF944152B2E709500334441 /* NetworkManager.swift */,
+				FCF944172B2E709500334441 /* ResponseHandler .swift */,
+				FCF944142B2E709500334441 /* URLRequestBulder.swift */,
+			);
+			path = NetworkLayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,8 +275,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC8AEFDB2B2E5C2B00B398A7 /* PhotoTableViewCell.swift in Sources */,
+				FCF9441A2B2E709500334441 /* APIModel.swift in Sources */,
+				FCF9441B2B2E709500334441 /* ResponseHandler .swift in Sources */,
 				FC8AEFC62B2E519200B398A7 /* PhotoListViewController.swift in Sources */,
+				FCF944182B2E709500334441 /* URLRequestBulder.swift in Sources */,
+				FCF9441D2B2E780900334441 /* APIResponse .swift in Sources */,
 				FC8AEFD92B2E59A600B398A7 /* PhotoListPresenter.swift in Sources */,
+				FCF944192B2E709500334441 /* NetworkManager.swift in Sources */,
 				FC8AEFC22B2E519200B398A7 /* AppDelegate.swift in Sources */,
 				FC8AEFC42B2E519200B398A7 /* SceneDelegate.swift in Sources */,
 				FC8AEFDF2B2E620E00B398A7 /* UITableView+Extension.swift in Sources */,

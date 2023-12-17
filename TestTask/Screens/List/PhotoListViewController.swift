@@ -1,5 +1,9 @@
 import UIKit
 
+protocol PhotoListViewControllerSpec: AnyObject {
+    func updateTableView()
+}
+
 final class PhotoListViewController: UIViewController {
 
     // MARK: - Properties
@@ -17,16 +21,12 @@ final class PhotoListViewController: UIViewController {
         return tableView
     }()
     
-    var mock: [CellViewModel] = []
-    
     // MARK: - Lifycycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setup()
-        
-        tableView.reloadData()
     }
     
     // MARK: - Setup
@@ -36,9 +36,7 @@ final class PhotoListViewController: UIViewController {
         
         setupConstraints()
         
-        mock.append(CellViewModel(image: UIImage(named: "1"), name: "Год", id: 1))
-        mock.append(CellViewModel(image: UIImage(named: "2"), name: "Человек", id: 2))
-        mock.append(CellViewModel(image: nil, name: "Время", id: 3))
+        presenter?.getData()
     }
     
     private func setupConstraints() {
@@ -53,16 +51,25 @@ final class PhotoListViewController: UIViewController {
 extension PhotoListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        mock.count
+        presenter?.elementsCount ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: PhotoTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        guard let presenter, let cell: PhotoTableViewCell = tableView.dequeueReusableCell(for: indexPath)
         else {
             return UITableViewCell()
         }
-        let cellModel = mock[indexPath.row]
+        let cellModel = presenter.data[indexPath.row]
         cell.configure(viewModel: cellModel)
         return cell
+    }
+}
+
+// MARK: - PhotoListViewControllerSpec
+
+extension PhotoListViewController: PhotoListViewControllerSpec {
+    
+    func updateTableView() {
+        self.tableView.reloadData()
     }
 }
