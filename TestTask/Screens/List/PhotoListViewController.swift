@@ -10,6 +10,8 @@ final class PhotoListViewController: UIViewController {
     
     var presenter: PhotoListPresenterSpec?
     
+    private var selectedTableViewRow: Int?
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,7 +46,16 @@ final class PhotoListViewController: UIViewController {
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
+    
+    private func presentCamera() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        picker.allowsEditing = true
+        picker.delegate = self
+        present(picker, animated: true)
+    }
 }
+
 
 // MARK: - UITableViewDataSource & UITableViewDelegate
 
@@ -73,11 +84,37 @@ extension PhotoListViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        presenter?.openCamera()
+        self.selectedTableViewRow = indexPath.row
+        
+         self.presentCamera()
         
         tableView.cellForRow(at: indexPath)?.isSelected = false
     }
 }
+
+
+// MARK: - UIImageControllerDelegate & UINavigationControllerDelegate
+
+extension PhotoListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        picker.dismiss(animated: true)
+        
+        guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+    
+        if let row = selectedTableViewRow, let id = presenter?.data[row].id, let data = image.pngData() {
+            presenter?.uploadImage(id: id, imageData: data)
+        }
+        
+        selectedTableViewRow = nil
+    }
+}
+
 
 // MARK: - PhotoListViewControllerSpec
 

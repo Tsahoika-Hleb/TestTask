@@ -16,12 +16,14 @@ protocol APIEndpoint {
     var parameters: [URLQueryItem] { get }
     var method: HTTPMethod { get }
     var authToken: String? { get }
-    var body: Data { get }
+    // var body: Data { get }
+    func getBody(boundary: String) -> Data
 }
 
-enum APIModel: APIEndpoint, Equatable {
+enum APIModel: APIEndpoint {
+    
     case downloadData(page: Int)
-    case uploadData
+    case uploadData(model: APIRequestBody)
     case downloadImage(id: Int)
     
     var baseURL: String {
@@ -51,7 +53,7 @@ enum APIModel: APIEndpoint, Equatable {
             ]
         case .uploadData:
             return []
-        case .downloadImage(id: let id):
+        case .downloadImage:
             return []
         }
     }
@@ -62,7 +64,7 @@ enum APIModel: APIEndpoint, Equatable {
             return .get
         case .uploadData:
             return .post
-        case .downloadImage(id: let id):
+        case .downloadImage:
             return .get
         }
     }
@@ -71,14 +73,38 @@ enum APIModel: APIEndpoint, Equatable {
         nil
     }
     
-    var body: Data {
+    func getBody(boundary: String) -> Data {
         switch self {
-        case .downloadData:
-            return Data()
-        case .uploadData:
-            return Data() // TODO: set data to upload
-        case .downloadImage:
-            return Data()
+        case .uploadData(let model):
+            var httpBody = Data()
+
+            func append(_ string: String) {
+                if let data = string.data(using: .utf8) {
+                    httpBody.append(data)
+                }
+            }
+
+            func appendLineBreak() {
+                append("\r\n")
+            }
+
+            append("--\(boundary)\r\n")
+            append("Content-Disposition: form-data; name=\"name\"\r\n\r\n\(model.name)\r\n")
+
+            append("--\(boundary)\r\n")
+            append("Content-Disposition: form-data; name=\"typeId\"\r\n\r\n\(model.typeId)\r\n")
+
+            append("--\(boundary)\r\n")
+            append("Content-Disposition: form-data; name=\"photo\"; filename=\"photo.jpg\"\r\n")
+            append("Content-Type: image/jpeg\r\n\r\n")
+
+            httpBody.append(model.photo)
+
+            appendLineBreak()
+            append("--\(boundary)--\r\n")
+
+            return httpBody
+        default: return Data()
         }
     }
 }

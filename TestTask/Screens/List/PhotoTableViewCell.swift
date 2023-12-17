@@ -60,6 +60,8 @@ final class PhotoTableViewCell: UITableViewCell {
         contentView.addSubview(titleLabel)
         contentView.addSubview(idLabel)
         
+        contentView.backgroundColor = .white
+        
         setupConstraints()
     }
 

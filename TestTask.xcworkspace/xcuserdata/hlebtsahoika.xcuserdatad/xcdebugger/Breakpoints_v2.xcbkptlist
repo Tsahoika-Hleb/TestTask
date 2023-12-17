@@ -7,65 +7,110 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "55364E51-032F-4ED8-9905-55A96D49C18F"
+            uuid = "B24370FA-27B9-493F-83D6-20D3183BF371"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestTask/Screens/List/PhotoListViewController.swift"
+            filePath = "TestTask/NetworkLayer/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "performRequest(config:responseHandler:isApiResponse:retryCount:completion:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B24370FA-27B9-493F-83D6-20D3183BF371 - b1a22e024f5fc0e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestTask.NetworkManager.performRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(config: TestTask.APIModel, responseHandler: TestTask.ResponseHandler, isApiResponse: Swift.Bool, retryCount: Swift.Int, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/NetworkLayer/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "772">
+               </Location>
+               <Location
+                  uuid = "B24370FA-27B9-493F-83D6-20D3183BF371 - e19889ae1ce74d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TestTask.NetworkManager.performRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(config: TestTask.APIModel, responseHandler: TestTask.ResponseHandler, isApiResponse: Swift.Bool, retryCount: Swift.Int, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/NetworkLayer/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "196">
+               </Location>
+               <Location
+                  uuid = "B24370FA-27B9-493F-83D6-20D3183BF371 - 9cb725fb75916be2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TestTask.NetworkManager.performRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(config: TestTask.APIModel, responseHandler: TestTask.ResponseHandler, isApiResponse: Swift.Bool, retryCount: Swift.Int, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/NetworkLayer/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "276">
+               </Location>
+               <Location
+                  uuid = "B24370FA-27B9-493F-83D6-20D3183BF371 - b1a22e024f5fc0e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TestTask.NetworkManager.performRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(config: TestTask.APIModel, responseHandler: TestTask.ResponseHandler, isApiResponse: Swift.Bool, retryCount: Swift.Int, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/NetworkLayer/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "660">
+               </Location>
+               <Location
+                  uuid = "B24370FA-27B9-493F-83D6-20D3183BF371 - 9cb725fb75916be2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; () in closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TestTask.NetworkManager.performRequest&lt;&#x3c4;_0_0 where &#x3c4;_0_0: Swift.Decodable&gt;(config: TestTask.APIModel, responseHandler: TestTask.ResponseHandler, isApiResponse: Swift.Bool, retryCount: Swift.Int, completion: (Swift.Result&lt;&#x3c4;_0_0, Swift.Error&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/NetworkLayer/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "260">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3"
-            shouldBeEnabled = "Yes"
+            uuid = "195A5AF2-8151-41D4-B8ED-12D2C3F793AD"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "TestTask/Screens/List/PhotoListPresenter.swift"
+            filePath = "TestTask/NetworkLayer/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
-            landmarkName = "getData()"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "performRequest(config:responseHandler:isApiResponse:retryCount:completion:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3 - 17b54092795a4c4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Result&lt;TestTask.APIResponse, Swift.Error&gt;) -&gt; () in TestTask.PhotoListPresenter.getData() -&gt; ()"
-                  moduleName = "TestTask"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/Screens/List/PhotoListPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "55"
-                  endingLineNumber = "55"
-                  offsetFromSymbolStart = "1176">
-               </Location>
-               <Location
-                  uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3 - 2dee57e8740000b2"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;TestTask.APIResponse, Swift.Error&gt;) -&gt; () in TestTask.PhotoListPresenter.getData() -&gt; ()"
-                  moduleName = "TestTask"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/Screens/List/PhotoListPresenter.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "46"
-                  endingLineNumber = "46"
-                  offsetFromSymbolStart = "20">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

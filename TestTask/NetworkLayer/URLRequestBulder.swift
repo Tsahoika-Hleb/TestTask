@@ -11,8 +11,15 @@ final class URLRequestBuilder: URLRequestBuilding {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = config.method.rawValue
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpBody = config.body
+        
+        switch config {
+        case .downloadData, .downloadImage:
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        case .uploadData:
+            let boundary = UUID().uuidString
+            urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+            urlRequest.httpBody = config.getBody(boundary: boundary)
+        }
         
         return urlRequest
     }

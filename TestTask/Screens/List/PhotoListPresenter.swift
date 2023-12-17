@@ -6,7 +6,7 @@ protocol PhotoListPresenterSpec {
     var isNowLoading: Bool { get set }
     
     func getData()
-    func openCamera()
+    func uploadImage(id: Int, imageData: Data)
 }
 
 final class PhotoListPresenter: PhotoListPresenterSpec {
@@ -63,11 +63,20 @@ final class PhotoListPresenter: PhotoListPresenterSpec {
         }
     }
     
-    func openCamera() {
-        print("Open camera")
+    func uploadImage(id: Int, imageData: Data) {
+        networkManager?.request(config: .uploadData(model: APIRequestBody(photo: imageData, typeId: id)), 
+                                responseHandler: DefaultResponseHandler(),
+                                isApiResponse: false) { (result: Result<String, Error>) in
+            switch result {
+            case .success(let success):
+                 debugPrint(success)
+            case .failure(let failure):
+                fatalError(failure.localizedDescription)
+            }
+        }
     }
     
-    // MARK: Private Methods
+    // MARK: - Private Methods
     
     private func downloadImages() {
         var i = elementsCount

@@ -32,6 +32,7 @@ final class NetworkManager {
         }
 
         let dataTask = urlSession.dataTask(with: urlRequest) { [weak self] data, response, error in
+            
             responseHandler.handle(data: data,
                                    response: response,
                                    error: error,
@@ -77,6 +78,3 @@ enum AppError: Error {
     case otherError(text: String)
     case decodingError
 }
-
-
-// TODO: - сделать обертку с complition через async await
