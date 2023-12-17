@@ -63,6 +63,20 @@ extension PhotoListViewController: UITableViewDataSource, UITableViewDelegate {
         cell.configure(viewModel: cellModel)
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard let presenter else { return }
+        
+        if indexPath.row == presenter.elementsCount - 5, !presenter.isNowLoading {
+            presenter.getData()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.openCamera()
+        
+        tableView.cellForRow(at: indexPath)?.isSelected = false
+    }
 }
 
 // MARK: - PhotoListViewControllerSpec

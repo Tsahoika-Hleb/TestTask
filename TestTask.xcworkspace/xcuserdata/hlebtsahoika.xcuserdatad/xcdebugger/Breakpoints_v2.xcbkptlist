@@ -3,4 +3,70 @@
    uuid = "638D9A6E-14DB-45E9-8907-56A2E1FF7DC9"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "55364E51-032F-4ED8-9905-55A96D49C18F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestTask/Screens/List/PhotoListViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "tableView(_:willDisplay:forRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TestTask/Screens/List/PhotoListPresenter.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "getData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3 - 17b54092795a4c4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Result&lt;TestTask.APIResponse, Swift.Error&gt;) -&gt; () in TestTask.PhotoListPresenter.getData() -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/Screens/List/PhotoListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "1176">
+               </Location>
+               <Location
+                  uuid = "310E4225-75EA-499F-B418-E59C3E3C3BF3 - 2dee57e8740000b2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Result&lt;TestTask.APIResponse, Swift.Error&gt;) -&gt; () in TestTask.PhotoListPresenter.getData() -&gt; ()"
+                  moduleName = "TestTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/hlebtsahoika/SwiftApps/TestTask/TestTask/Screens/List/PhotoListPresenter.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

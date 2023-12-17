@@ -3,8 +3,10 @@ import UIKit
 protocol PhotoListPresenterSpec {
     var elementsCount: Int { get }
     var data: [CellViewModel] { get set }
+    var isNowLoading: Bool { get set }
     
     func getData()
+    func openCamera()
 }
 
 final class PhotoListPresenter: PhotoListPresenterSpec {
@@ -17,6 +19,8 @@ final class PhotoListPresenter: PhotoListPresenterSpec {
     
     var data: [CellViewModel] = []
     private var contentData: [Content] = []
+    
+    var isNowLoading: Bool = false
     
     var elementsCount: Int {
         data.count
@@ -35,25 +39,35 @@ final class PhotoListPresenter: PhotoListPresenterSpec {
     // MARK: - Methods
     
     func getData() {
+        guard totalPages >= page else { return }
+            
+        isNowLoading = true
         
         networkManager?.request(config: .downloadData(page: page),
                                 responseHandler: DefaultResponseHandler()) { [weak self] (result: Result<APIResponse, Error>) in
             switch result {
             case .success(let success):
-                self?.contentData = success.content
-                self?.page = success.page
+                self?.contentData += success.content
+                self?.page = success.page + 1
                 self?.totalPages = success.totalPages
                 
                 self?.downloadImages()
                 
                 DispatchQueue.main.async {
                     self?.delegate?.updateTableView()
+                    self?.isNowLoading = false
                 }
             case .failure(let failure):
                 fatalError(failure.localizedDescription)
             }
         }
     }
+    
+    func openCamera() {
+        print("Open camera")
+    }
+    
+    // MARK: Private Methods
     
     private func downloadImages() {
         var i = elementsCount
